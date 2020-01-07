@@ -96,10 +96,13 @@ This is a WPF sample using DYMO Connect SDK nuget package.
 
 ### Prerequisites 📋
 
+DYMO Connect Software installed
+*[DYMO Connect Software](https://www.dymo.com/en-US/dymo-connect-for-desktop-v12--windows%C2%AE-dymo-connect-for-desktop-v12#tab=Support)
+
 Reference to Javascript SDK file
 
 * [DYMO.Connect.Framework](http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js)
-* DYMO Connect Software installed
+
 ### Installing 🔧
 
 Include the file in your project
