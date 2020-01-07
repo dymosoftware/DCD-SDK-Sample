@@ -99,7 +99,7 @@ This is a WPF sample using DYMO Connect SDK nuget package.
 Reference to Javascript SDK file
 
 * [DYMO.Connect.Framework](http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js)
-
+* DYMO Connect Software installed
 ### Installing 🔧
 
 Include the file in your project
