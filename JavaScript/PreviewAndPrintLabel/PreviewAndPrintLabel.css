@@ -1,0 +1,107 @@
+/*body
+{
+	background:green;
+}*/
+
+div.header,div.footer
+{
+padding:0.5em;
+color:white;
+background-color:gray;
+/*color:green;*/
+clear:left;
+}
+
+/*
+div.top
+{
+	background-color:Aqua;
+	position:fixed;
+	height:100%;
+	width:100%;
+}
+*/
+
+div.left
+{
+	float:left;
+	width:350px;
+	margin:0;
+	padding:1em;
+	background-color:#f0f9fa;
+}
+
+div.content
+{
+	margin-left:400px;
+	border-left:1px solid gray;
+	padding:1em;
+	height:100%;
+/*	background-color:Yellow;*/
+}
+
+div.printControls
+{
+	background-color:#edf0ec;
+	height:100px;
+	padding: 5px;
+	bottom:0;
+
+}
+
+#labelImageDiv
+{
+	background-color: #b2b2b2;
+	padding: 5px;
+	margin: 0px;
+}
+
+#printDiv
+{
+	float:right;
+	width:126px;
+}
+
+#printButton
+{
+	display:block;
+	width:126px;
+	height:98px;
+	font-size:36pt;
+	font-weight:bold;
+	border:0;
+	color:White;
+	background-color:Transparent;
+	background-repeat:no-repeat;
+	background-image: url("PrintButtonNormal.png");
+}
+
+#printButton:hover
+{
+	background-image: url("PrintButtonHover.png");
+}
+
+#printButton:focus
+{
+	background-image: url("PrintButtonPressed.png");
+}
+
+#printButton:disabled
+{
+	color:#cccccc;
+	background-image: url("PrintButtonDisabled.png");
+}
+
+#printersDiv
+{
+	float:left;
+	margin-right: 200px;
+	margin-top:50px;
+	
+}
+
+
+#labelFileSelection
+{
+	margin: 0px;
+}

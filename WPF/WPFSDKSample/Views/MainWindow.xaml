@@ -1,0 +1,111 @@
+﻿<Window x:Class="WPFSDKSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFSDKSample"    
+        xmlns:VM="clr-namespace:WPFSDKSample.ViewModels"     
+          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="DYMO Connect SDK Sample" Height="650" Width="900"       
+        >
+    <Window.DataContext>
+        <VM:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type StackPanel}">
+                <Setter Property="Margin" Value="10" />
+            </Style>
+            <Style TargetType="{x:Type WrapPanel}">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style x:Key="LabelTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+            <Style x:Key="ActionButton" TargetType="Button">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Background" Value="CadetBlue" />
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style x:Key="BorderPanel" TargetType="Border">
+                <Setter Property="Background" Value="AliceBlue"></Setter>
+                <Setter Property="BorderBrush" Value="Gainsboro"></Setter>
+                <Setter Property="BorderThickness" Value="1"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="DimGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" />
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="10">
+            <StackPanel>
+                <Label Style="{StaticResource LabelTitle}">Open a file label</Label>
+                <Border Style="{StaticResource BorderPanel}">
+                    <WrapPanel>
+                        <TextBox IsEnabled="False" Text="{Binding FileName}" Width="450"></TextBox>
+                        <Button Margin="10,0,0,0" Command="{Binding OpenFileCommand}" Style="{StaticResource ActionButton}" Width="80">Browse...</Button>
+                    </WrapPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <Label Style="{StaticResource LabelTitle}">Label objects</Label>
+                <Border Style="{StaticResource BorderPanel}">
+                    <WrapPanel>
+                        <StackPanel>
+                            <Label FontWeight="Bold" FontSize="12">Select object</Label>
+                            <ListBox ItemsSource="{Binding LabelObjects}"  SelectedItem="{Binding SelectedLabelObject, Mode=OneWayToSource}" DisplayMemberPath="Name" MaxHeight="100" ></ListBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label FontWeight="Bold" FontSize="12">Object value</Label>
+                            <TextBox Width="150" Text="{Binding ObjectValue}"></TextBox>
+                            <Separator></Separator>
+                            <Button Command="{Binding UpdateLabelCommand}" Style="{StaticResource ActionButton}">Update label</Button>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label FontWeight="Bold" FontSize="12">Preview</Label>
+                            <WrapPanel Background="Transparent" Height="200">
+                                <Image Margin="5" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Unspecified" Source="{Binding ImageSourcePreview}" Width="250" Height="200"></Image>
+                            </WrapPanel>
+                            <Separator></Separator>
+                            <Button Command="{Binding UpdatePreviewCommand}" Style="{StaticResource ActionButton}">Update preview</Button>
+                        </StackPanel>
+                    </WrapPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <Label Style="{StaticResource LabelTitle}">Printers</Label>
+                <Border Style="{StaticResource BorderPanel}">
+                    <WrapPanel>
+                        <StackPanel>
+                            <Label FontWeight="Bold" FontSize="12">Select printer</Label>
+                            <ComboBox ItemsSource="{Binding Printers}"  SelectedItem="{Binding SelectedPrinter, Mode=OneWayToSource}"  DisplayMemberPath="Name"  MaxHeight="100" Width="250"></ComboBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label FontWeight="Bold" FontSize="12">Roll selection (Twin turbo 450 printer)</Label>
+                            <ComboBox ItemsSource="{Binding TwinTurboRolls}"  SelectedItem="{Binding SelectedRoll, Mode=OneWayToSource}"></ComboBox>
+                            <Label FontSize="11">*Only for Twin Turbo 450 printer</Label>
+                        </StackPanel>
+                        <StackPanel>
+
+                            <Button Command="{Binding PrintLabelCommand}" Style="{StaticResource ActionButton}" Margin="25" Width="120" >Print label</Button>
+                        </StackPanel>
+                    </WrapPanel>
+                </Border>
+                <TextBlock Text="{Binding PrintersFound,  StringFormat='Printer(s) installed {0}'}" HorizontalAlignment="Right"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+</Window>

@@ -1,4 +1,4 @@
-# DYMO Connect SDK   [![DYMO Connect](http://labelwriter.com/DYMO_Connect_Icon_52x51.png)](http://www.dymo.com/en-US)
+﻿# DYMO Connect SDK   [![DYMO Connect](http://labelwriter.com/DYMO_Connect_Icon_52x51.png)](http://www.dymo.com/en-US)
 
 ## Getting Started 🚀
 

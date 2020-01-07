@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DieCutLabel Version="8.0" Units="twips">
+  <PaperOrientation>Landscape</PaperOrientation>
+  <Id>NameBadgeTag</Id>
+  <PaperName>30365 Name Badge Card - offset</PaperName>
+  <DrawCommands>
+    <Path>
+      <FillMode>EvenOdd</FillMode>
+      <Line X1="3240" Y1="0" X2="3240" Y2="5040"/>
+      <LineTo X="270" Y="5040"/>
+      <Arc CenterX="185" CenterY="5040" Radius="85" StartAngle="0" EndAngle="90"/>
+      <LineTo X="0" Y="4955"/>
+      <LineTo X="0" Y="85"/>
+      <LineTo X="185" Y="85"/>
+      <Arc CenterX="185" CenterY="0" Radius="85" StartAngle="-90" EndAngle="0"/>
+      <LineTo X="3240" Y="0"/>
+    </Path>
+  </DrawCommands>
+  <ObjectInfo>
+    <TextObject>
+      <Name>text</Name>
+      <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
+      <BackColor Alpha="0" Red="255" Green="255" Blue="255"/>
+      <LinkedObjectName></LinkedObjectName>
+      <Rotation>Rotation0</Rotation>
+      <IsMirrored>False</IsMirrored>
+      <IsVariable>True</IsVariable>
+      <HorizontalAlignment>Left</HorizontalAlignment>
+      <VerticalAlignment>Top</VerticalAlignment>
+      <TextFitMode>ShrinkToFit</TextFitMode>
+      <UseFullFontHeight>True</UseFullFontHeight>
+      <Verticalized>False</Verticalized>
+      <StyledText>
+        <Element>
+          <String>Name and other information</String>
+          <Attributes>
+            <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False"/>
+            <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
+          </Attributes>
+        </Element>
+      </StyledText>
+    </TextObject>
+    <Bounds X="468" Y="1313.943" Width="4471.2" Height="1706.457"/>
+  </ObjectInfo>
+  <ObjectInfo>
+    <ShapeObject>
+      <Name>Shape</Name>
+      <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
+      <BackColor Alpha="0" Red="255" Green="255" Blue="255"/>
+      <LinkedObjectName></LinkedObjectName>
+      <Rotation>Rotation0</Rotation>
+      <IsMirrored>False</IsMirrored>
+      <IsVariable>False</IsVariable>
+      <ShapeType>HorizontalLine</ShapeType>
+      <LineWidth>15</LineWidth>
+      <LineAlignment>Center</LineAlignment>
+      <FillColor Alpha="0" Red="255" Green="255" Blue="255"/>
+    </ShapeObject>
+    <Bounds X="468" Y="1108.6" Width="4471.2" Height="15"/>
+  </ObjectInfo>
+  <ObjectInfo>
+    <TextObject>
+      <Name>Top Text</Name>
+      <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
+      <BackColor Alpha="0" Red="255" Green="255" Blue="255"/>
+      <LinkedObjectName></LinkedObjectName>
+      <Rotation>Rotation0</Rotation>
+      <IsMirrored>False</IsMirrored>
+      <IsVariable>False</IsVariable>
+      <HorizontalAlignment>Left</HorizontalAlignment>
+      <VerticalAlignment>Middle</VerticalAlignment>
+      <TextFitMode>ShrinkToFit</TextFitMode>
+      <UseFullFontHeight>True</UseFullFontHeight>
+      <Verticalized>False</Verticalized>
+      <StyledText>
+        <Element>
+          <String>VISITOR</String>
+          <Attributes>
+            <Font Family="Arial" Size="28" Bold="True" Italic="False" Underline="False" Strikeout="False"/>
+            <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
+          </Attributes>
+        </Element>
+      </StyledText>
+    </TextObject>
+    <Bounds X="468" Y="301.1811" Width="4471.2" Height="833.3859"/>
+  </ObjectInfo>
+</DieCutLabel>
