@@ -8,11 +8,6 @@ These instructions will help you to understand how DYMO Connect SDK works for .N
 This is a WPF sample using DYM.Connect.SDK nuget package.
 
 
-### Prerequisites 📋
-
-```
-Visual Studio 2017+
-```
 
 ### Installing 🔧
 
@@ -30,7 +25,7 @@ Package Manager Console - PM> Install-Package DYMO.Connect.SDK
 
 ## Nuget package 📦
 
-* [nuget.org](https://www.nuget.org/packages/DYMO.Connect.SDK/) - The nuget hosted
+* [DYMO.Connect.SDK](https://www.nuget.org/packages/DYMO.Connect.SDK/) - The nuget package required
 
 ## Dependencies 🛠️
 
