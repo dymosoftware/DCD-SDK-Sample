@@ -1,11 +1,11 @@
-# DYMO Connect SDK   [![DYMO Connect](http://labelwriter.com/DYMO_Connect_Icon_52x51.png)](http://www.dymo.com/en-US)
+# DYMO Connect SDK  
 
 ## Getting Started 🚀
 
-These instructions will help you to understand how DYMO Connect SDK works for cross-platform application and Javascript.
+These instructions will help you to understand how DYMO Connect SDK works for .NET and Javascript.
 
 # .NET Sample
-This is a WPF sample using DYMO Connect SDK nuget package.
+This is a WPF sample using DYM.Connect.SDK nuget package.
 
 
 ### Prerequisites 📋
@@ -36,6 +36,8 @@ Package Manager Console - PM> Install-Package DYMO.Connect.SDK
 
 * [NETStandard](https://www.nuget.org/packages/NETStandard.Library/) - NETStandard.Library (>= 2.0.0) 
 * [SkiaSharp](https://www.nuget.org/packages/SkiaSharp/) - SkiaSharp (>= 1.68.0)
+* [SkiaSharp.Views](https://www.nuget.org/packages/SkiaSharp.Views/) - SkiaSharp.Views (>= 1.68.0)
+* [SkiaSharp.HarfBuzz](https://www.nuget.org/packages/SkiaSharp.HarfBuzz/) - SkiaSharp.HarfBuzz (>= 1.68.0)
 
 ## Classes and methods ⚙️
 
@@ -96,19 +98,19 @@ This is a WPF sample using DYMO Connect SDK nuget package.
 
 Reference to Javascript SDK file
 
-* [DYMO.Label.Framework](https://dymo.label.framework)
+* [DYMO.Connect.Framework](http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js)
 
 ### Installing 🔧
 
 Include the file in your project
 ```html
-<script src = "dymo.label.framework.js" type="text/javascript"> </script>
+<script src = "http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js" type="text/javascript"> </script>
 ```
 
 ### Methods ⚙️
 These are the methods availables in JavaScript SDK
 
-- #### dymo.label.framework
+- #### dymo.connect.framework
     - **Initialize**
     ```javascript 
      dymo.label.framework.init() //Initialize DYMO Label Framework
@@ -139,10 +141,11 @@ These are the methods availables in JavaScript SDK
 ## Authors ✒️
 
 DYMO Team
+[www.dymo.com](http://www.dymo.com/en-US)
 
 ## Acknowledgments 📢
 
 * [NETStandard documentation](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
-* [DYMO Connect JavaScript SDK](http://ddymojavascriptsdk.com)
 * [Dymo developer's blog](http://developers.dymo.com/)
+* Questions or comments:  [sdkreply@newellco.com](mailto:sdkreply@newellco.com)
 
