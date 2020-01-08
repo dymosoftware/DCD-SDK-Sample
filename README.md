@@ -145,6 +145,5 @@ DYMO Team
 ## Acknowledgments 📢
 
 * [NETStandard documentation](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
-* [Dymo developer's blog](http://developers.dymo.com/)
 * Questions? [dymoconsumercare@newellco.com](mailto:dymoconsumercare@newellco.com)
 
