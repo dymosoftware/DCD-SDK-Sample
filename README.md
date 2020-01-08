@@ -146,5 +146,5 @@ DYMO Team
 
 * [NETStandard documentation](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
 * [Dymo developer's blog](http://developers.dymo.com/)
-* DYMO consumer care contact [dymoconsumercare@newellco.com](mailto:dymoconsumercare@newellco.com)
+* Questions? [dymoconsumercare@newellco.com](mailto:dymoconsumercare@newellco.com)
 
