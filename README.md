@@ -11,16 +11,16 @@ This is a WPF sample using DYM.Connect.SDK nuget package.
 
 ### Installing 🔧
 
-Open the project in Visual Studio
+Open the project on Visual Studio
 
 ```
 File > Open > Project/Solution > Select WPFSDKSample.csproj
 ```
 
-Install and restore nuget packages
+Run Package Manager Console
 
-```
-Package Manager Console - PM> Install-Package DYMO.Connect.SDK
+```console 
+ update-package -reinstall
 ```
 
 ## Nuget package 📦
