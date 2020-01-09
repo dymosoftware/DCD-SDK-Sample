@@ -218,6 +218,7 @@ namespace WPFSDKSample.ViewModels
                 //Send to print
                 if (SelectedPrinter.Name.Contains("Twin Turbo"))
                 {
+                    //0: Auto, 1: Left roll, 2: Right roll
                     int rollSel = SelectedRoll == "Auto" ? 0 : SelectedRoll == "Left" ? 1 : 2;
                     DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, rollSelected: rollSel);
                 }
