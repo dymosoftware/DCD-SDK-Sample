@@ -102,10 +102,11 @@ Reference to Javascript SDK file
 
 ### Installing 🔧
 
-Include the file in your project
-```html
-<script src = "http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js" type="text/javascript"> </script>
-```
+Include the framework into your project
+
+* [https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.js](https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.js)
+* [http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js](http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js)
+
 
 ### Methods ⚙️
 These are the methods availables in JavaScript SDK
