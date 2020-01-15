@@ -124,6 +124,10 @@ These are the methods availables in JavaScript SDK
     ```javascript
     dymo.label.framework.openLabelXml(labelXml) //Load label from XML content
     ```
+     - **Get preview**
+    ```javascript
+    dymo.label.framework.isValidLabel() //Validate if the current label content belongs to a valid DYMO label
+    ```
      - **Get printers**
     ```javascript
     dymo.label.framework.getPrinters() //Get list of DYMO printers installed
