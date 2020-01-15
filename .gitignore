@@ -1,0 +1,6 @@
+
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
+WPF/.vs/DYMOConnectSampleWPF/v15/*

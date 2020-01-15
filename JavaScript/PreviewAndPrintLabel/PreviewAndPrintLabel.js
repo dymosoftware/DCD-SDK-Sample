@@ -44,7 +44,6 @@
                 return;
 
             var pngData = label.render();
-            console.log(pngData);
             var labelImage = document.getElementById('labelImage');
             labelImage.src = "data:image/png;base64," + pngData;
         }
@@ -104,7 +103,20 @@
                 // do it only if we have a full path
                 var fileName = labelFile.value;
                 if (fileName.indexOf('/') >= 0 || fileName.indexOf('\\') >= 0)
-                    label = dymo.label.framework.openLabelFile("C:\\Users\\Marco Lerma\\Documents\\PreviewLabelFramework.label"); // wrong fileName under Opera/Safari, CHrome);
+				{
+                    label = dymo.label.framework.openLabelFile(fileName); 
+					if(label.isDCDLabel())
+						console.log("DYMO Connect label")	;
+					if(label.isDLSLabel())
+						console.log("DLS label")	;	
+					if(label.isValidLabel())
+						console.log("The file is a valid label")	;
+					else				
+					{
+						alert(" The file is not a valid label")	;
+						return;
+					}
+				}
                 else
                 {
                     // the browser returned a file name only (without path). This heppens on Safari for example
