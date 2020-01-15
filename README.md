@@ -87,13 +87,14 @@ Run Package Manager Console
 
 
 # JavaScript Sample
-This is a WPF sample using DYMO Connect SDK nuget package.
+This is a JavaScript sample using DYMO Connect Framework.
 
 ### Prerequisites 📋
 
 DYMO Connect Software installed
 
 * [DYMO Connect Software](https://www.dymo.com/en-US/dymo-connect-for-desktop-v12--windows%C2%AE-dymo-connect-for-desktop-v12#tab=Support)
+* DYMO Connect framework has compatibility with DYMO Label Software
 
 Reference to Javascript SDK file
 
