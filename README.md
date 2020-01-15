@@ -121,6 +121,7 @@ These are the methods availables in JavaScript SDK
     ```javascript
     dymo.label.framework.openLabelFile(fileName) //Load label from file name
     ```
+    - **Validate label**
     ```javascript
     dymo.label.framework.openLabelXml(labelXml) //Load label from XML content
     ```
