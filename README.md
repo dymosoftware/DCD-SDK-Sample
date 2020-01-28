@@ -121,11 +121,11 @@ These are the methods availables in JavaScript SDK
     ```
     - **Load label**
     ```javascript
-    dymo.label.framework.openLabelFile(fileName) //Load label from file name and return label object
+    dymo.label.framework.openLabelFile(fileName) //Load label from file name and return label instance
     ```
     - **Validate label**
     ```javascript
-    dymo.label.framework.openLabelXml(labelXml) //Load label from XML content and return label object
+    dymo.label.framework.openLabelXml(labelXml) //Load label from XML content and return label instance
     ```
      - **Validate from label instance**
     ```javascript
