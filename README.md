@@ -129,9 +129,9 @@ These are the methods availables in JavaScript SDK
     ```
      - **Validate from label instance**
     ```javascript
-    label.isValidLabel() //Validate if the current content is a valid label
-    label.isDCDLabel() //Validate if the current content is a valid DYMO Connect label
-    label.isDLSLabel() //Validate if the current content is a valid DYMO Label Software label
+    label.isValidLabel() //Validate if the current content is a valid label based on the service installed
+    label.isDCDLabel() //Validate if the current content is a valid DYMO Connect label based on DYMO Connect service
+    label.isDLSLabel() //Validate if the current content is a valid DYMO Label Software label based on DYMO Label Software service
     ```
      - **Get printers**
     ```javascript
