@@ -82,10 +82,10 @@ Package Manager Console - PM> Install-Package DYMO.Connect.SDK
     
     - **Print label**
     ```csharp
-    bool PrintLabel(DymoLabel label, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks = false) // Print an instantiated DymoLabel object in the selected printer
+    bool PrintLabel(DymoLabel label, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks = false, bool barcodeGraphsQuality = false) // Print an instantiated DymoLabel object in the selected printer
     ```
     ```csharp
-    bool PrintLabel(IEnumerable<DymoLabel> labels, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks=false) // Print a list of instantiated DymoLabel objects in the selected printer
+    bool PrintLabel(IEnumerable<DymoLabel> labels, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks = false, bool barcodeGraphsQuality = false) // Print a list of instantiated DymoLabel objects in the selected printer
     ```
 
 

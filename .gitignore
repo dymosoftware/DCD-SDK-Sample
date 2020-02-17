@@ -4,3 +4,6 @@
 */**/obj/Debug
 */**/obj/Release
 WPF/.vs/DYMOConnectSampleWPF/v15/*
+WPF/packages/DYMO.Connect.SDK.1.2.977/.signature.p7s
+WPF/packages/DYMO.Connect.SDK.1.2.977/Build/DYMO.Connect.SDK.targets
+*/packages

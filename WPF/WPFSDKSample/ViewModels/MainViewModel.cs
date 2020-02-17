@@ -214,16 +214,24 @@ namespace WPFSDKSample.ViewModels
         {
             int copies = 1;
             if (SelectedPrinter != null)
-            {
+            {                
+                bool barcodeOrGraphsquality = false;
+
+                //Default quality is TEXT
+                //Setting barcodeGraphsQuality will improve printing quality being easier to read Barcode or QRcode objects
+                if (ContainsBarcodeOrGraphObjects())
+                    barcodeOrGraphsquality = true;
+
                 //Send to print
                 if (SelectedPrinter.Name.Contains("Twin Turbo"))
                 {
                     //0: Auto, 1: Left roll, 2: Right roll
                     int rollSel = SelectedRoll == "Auto" ? 0 : SelectedRoll == "Left" ? 1 : 2;
-                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, rollSelected: rollSel);
+                   
+                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, rollSelected: rollSel, barcodeGraphsQuality: barcodeOrGraphsquality);
                 }
                 else
-                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies);
+                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, barcodeGraphsQuality: barcodeOrGraphsquality);
 
                 //If the label contains counter objects
                 //Update counter object and preview to show the incresead value of the counter
@@ -236,6 +244,23 @@ namespace WPFSDKSample.ViewModels
                 }
             }
         }
+
+        /// <summary>
+        /// Validate if label contains Barcode or QRCode objects
+        /// </summary>
+        /// <returns>True/False</returns>
+        private bool ContainsBarcodeOrGraphObjects()
+        {
+            foreach(var obj in LabelObjects)
+            {
+                if(obj.Type == DymoSDK.Interfaces.TypeObject.BarcodeObject || obj.Type == DymoSDK.Interfaces.TypeObject.QRCodeObject)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// Update the object value using the object name selected
         /// </summary>
