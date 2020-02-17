@@ -30,9 +30,8 @@ Run Package Manager Console
 ## Dependencies 🛠️
 
 * [NETStandard](https://www.nuget.org/packages/NETStandard.Library/) - NETStandard.Library (>= 2.0.0) 
-* [SkiaSharp](https://www.nuget.org/packages/SkiaSharp/) - SkiaSharp (>= 1.68.0)
-* [SkiaSharp.Views](https://www.nuget.org/packages/SkiaSharp.Views/) - SkiaSharp.Views (>= 1.68.0)
-* [SkiaSharp.HarfBuzz](https://www.nuget.org/packages/SkiaSharp.HarfBuzz/) - SkiaSharp.HarfBuzz (>= 1.68.0)
+* [SkiaSharp](https://www.nuget.org/packages/SkiaSharp/) - SkiaSharp (= 1.68.0)
+* [SkiaSharp.Views](https://www.nuget.org/packages/SkiaSharp.Views/) - SkiaSharp.Views (= 1.68.0)
 
 ## Classes and methods ⚙️
 
