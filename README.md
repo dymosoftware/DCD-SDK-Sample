@@ -107,8 +107,11 @@ Include the framework into your project
 * [http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js](http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js)
 
 
-### Methods ⚙️
-These are the methods availables in JavaScript SDK
+dymo.connect.framework includes functions from the previous dymo.label.framework
+
+* [DYMO.Label.Framework documentation](http://labelwriter.com/software/dls/sdk/docs/DYMOLabelFrameworkJavaScriptHelp/)
+
+These are the main functions to get start
 
 - #### dymo.connect.framework
     - **Initialize**
@@ -126,9 +129,9 @@ These are the methods availables in JavaScript SDK
     ```javascript
     dymo.label.framework.openLabelXml(labelXml) //Load label from XML content and return label instance
     ```
-     - **Validate from label instance**
+     - **Validate label instance** (introduced in dymo.connect.framework)
     ```javascript
-    label.isValidLabel() //Validate if the current content is a valid label based on the service installed
+    label.isValidLabel() //Validate if the current content is a valid label based on the current service installed
     label.isDCDLabel() //Validate if the current content is a valid DYMO Connect label based on DYMO Connect service
     label.isDLSLabel() //Validate if the current content is a valid DYMO Label Software label based on DYMO Label Software service
     ```
@@ -144,6 +147,11 @@ These are the methods availables in JavaScript SDK
     ```javascript
     dymo.label.framework.renderLabel(labelXml, renderParamsXml, printerName) //Get label preview image of the label
     ```
+* Important:
+
+Opening a label file previously created from DYMO Label Software, with DYMO Connect Software installed, it will convert the structure of DLS label into DYMO Connect label.
+Therefore, **isDCDLabel** function will return always true after label file has been open, when DYMO Connect is running.
+```
 
 ## Authors ✒️
 
