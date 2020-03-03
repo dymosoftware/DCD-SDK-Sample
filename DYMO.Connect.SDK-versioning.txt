@@ -9,11 +9,11 @@
 -----------------------------------------------------------------------------------------------
 	1.2.976.48730  Added the required dependencies to be downloaded when package is installed. 
 -----------------------------------------------------------------------------------------------
- 	1.2.977		  	  Fixed bug setting value for QRCode objects. 								
-				            Print quality parameter added on print methods.								
+ 	1.2.977        Fixed bug setting value for QRCode objects. 								
+                       Print quality parameter added on print methods.								
 -----------------------------------------------------------------------------------------------
-	1.2.977.101	   Fix issue loading label from XML content(DieCutLabel).						
+	1.2.977.101    Fix issue loading label from XML content(DieCutLabel).						
 -----------------------------------------------------------------------------------------------
-	1.2.977.106	   Fix issue loading label from XML content when Version and Units 			
-    			         when Version and Units element are switched in XML file.				    
+	1.2.977.106    Fix issue loading label from XML content when Version and Units 			
+                       when Version and Units element are switched in XML file.				    
  ----------------------------------------------------------------------------------------------
