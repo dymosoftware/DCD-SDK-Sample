@@ -90,6 +90,8 @@
         // loads label file thwn user selects it in file open dialog
         labelFile.onchange = function()
         {
+            label = dymo.label.framework.openLabelXml("");
+            var res=label.isValidLabel();
             if (labelFile.files && labelFile.files[0] && typeof labelFile.files[0].getAsText == "function") // Firefox
             {
                 // open file by providing xml label definition
@@ -102,18 +104,18 @@
                 // try load by opening file directly
                 // do it only if we have a full path
                 var fileName = labelFile.value;
-                if (fileName.indexOf('/') >= 0 || fileName.indexOf('\\') >= 0)
+                if ((fileName.indexOf('/') >= 0 || fileName.indexOf('\\') >= 0) &&(fileName.indexOf('fakepath') <0 ))
 				{
                     label = dymo.label.framework.openLabelFile(fileName); 
 					if(label.isDCDLabel())
-						console.log("DYMO Connect label")	;
+						console.log("DYMO Connect label");
 					if(label.isDLSLabel())
-						console.log("DLS label")	;	
+						console.log("DLS label");	
 					if(label.isValidLabel())
-						console.log("The file is a valid label")	;
+						console.log("The file is a valid label");
 					else				
 					{
-						alert(" The file is not a valid label")	;
+						alert(" The file is not a valid label");
 						return;
 					}
 				}
@@ -200,7 +202,7 @@
         printButton.onclick = function()
         {
             try
-            {
+            {               
                 if (!label)
                 {
                     alert("Load label before printing");
