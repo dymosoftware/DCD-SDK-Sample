@@ -174,6 +174,6 @@ DYMO Team
 ## Acknowledgments 📢
 
 * [NETStandard documentation](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
-* [DYMO Connect JavaScript SDK](http://ddymojavascriptsdk.com)
+* [DYMO Connect JavaScript SDK](https://github.com/dymosoftware/dymo-connect-framework)
 * [Dymo developer's blog](http://developers.dymo.com/)
 
