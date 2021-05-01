@@ -17,5 +17,9 @@
 	1.2.977.106    Fix issue loading label from XML content when Version and Units 			
                        when Version and Units element are switched in XML file.				    
  ----------------------------------------------------------------------------------------------
-	1.3.1.115 	   Fix low quality printing on tape printers with labels created from DLS.
+	1.3.1.115 	Fix low quality printing on tape printers with labels created from DLS.
+-----------------------------------------------------------------------------------------------
+	1.3.2.137 	Fix an issue printing blank labels on Windows OS versions launched 
+			on March 2021. If the issue persists look at the following workarounds
+			https://github.com/dymosoftware/DCD-SDK-Sample/issues/24.
 -----------------------------------------------------------------------------------------------
