@@ -70,19 +70,34 @@ Run Package Manager Console
 
 
 
-- #### DymoPrint class
-    - **Get printers**
-    ```csharp
-    IEnumerable<IPrinter> GetPrinters() //Get list of DYMO printers installed
-    ```
+
+- ### **DymoPrint instance**
+    - **Get printers** 
+      - Get list of DYMO printers installed in the current machine.
+      ```csharp
+      IEnumerable<IPrinter> GetPrinters() 
+      ```
     
-    - **Print label**
-    ```csharp
-    bool PrintLabel(DymoLabel label, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks = false, bool barcodeGraphsQuality = false) // Print an instantiated DymoLabel object in the selected printer
-    ```
-    ```csharp
-    bool PrintLabel(IEnumerable<DymoLabel> labels, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks=false, bool barcodeGraphsQuality = false) // Print a list of instantiated DymoLabel objects in the selected printer
-    ```
+    - **Print label**  
+      - Print an instantiated DymoLabel object in the selected printer.
+      ```csharp
+         bool PrintLabel(DymoLabel label, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks 
+        = false,  bool barcodeGraphsQuality = false) 
+       ```
+      - Print a list of instantiated DymoLabel objects in the selected printer.      
+      ```csharp
+      bool PrintLabel(IEnumerable<DymoLabel> labels, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, 
+      bool chainMarks=false,  bool barcodeGraphsQuality = false)
+      ```
+    - **LW 550 printer methods(these methods will not have effect when selected printer does not belong to 550 series)**  
+      - Verify if selected printer belongs to 550 series.
+      ```csharp
+         bool Is550Printer(string printerName) 
+       ```
+      - Get information about current label inserted in the selected printer.      
+      ```csharp
+      IConsumableInfo550Printer GetCurrentLabelInsertedIn550Printer(string printerName)
+      ```
 
 
 # JavaScript Sample
