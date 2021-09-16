@@ -143,7 +143,8 @@ namespace WPFSDKSample.ViewModels
             set
             {
                 _selectedPrinter = value;
-                NotifyPropertyChanged("FileName");
+                NotifyPropertyChanged("SelectedPrinter");
+                DisplayConsumableInformation();
             }
         }
 
@@ -173,14 +174,37 @@ namespace WPFSDKSample.ViewModels
                 NotifyPropertyChanged("SelectedRoll");
             }
         }
+
+        private string _consumableInfoText;
+        public string ConsumableInfoText
+        {
+            get { return _consumableInfoText; }
+            set
+            {
+                _consumableInfoText = value;
+                NotifyPropertyChanged("ConsumableInfoText");
+            }
+        }
+
+        private bool _showConsumableInfo;
+        public bool ShowConsumableInfo
+        {
+            get { return _showConsumableInfo; }
+            set
+            {
+                _showConsumableInfo = value;
+                NotifyPropertyChanged("ShowConsumableInfo");
+            }
+        }
         #endregion
 
-        DymoSDK.Implementations.DymoLabel dymoSDKLabel;
+        DymoSDK.Interfaces.IDymoLabel dymoSDKLabel;
 
 
         public MainViewModel()
         {
-            dymoSDKLabel = new DymoLabel();
+            DymoSDK.App.Init();
+            dymoSDKLabel = DymoLabel.Instance;
             Printers = DymoPrinter.Instance.GetPrinters();
             TwinTurboRolls = new List<string>() { "Auto", "Left", "Right" };
         }
@@ -197,6 +221,7 @@ namespace WPFSDKSample.ViewModels
             if (openFileDialog.ShowDialog() == true)
             {
                 FileName = openFileDialog.FileName;
+               // DymoSDK.App.Init();
                 //Load label from file path
                 dymoSDKLabel.LoadLabelFromFilePath(FileName);
                 //Get image preview of the label
@@ -214,24 +239,15 @@ namespace WPFSDKSample.ViewModels
         {
             int copies = 1;
             if (SelectedPrinter != null)
-            {                
-                bool barcodeOrGraphsquality = false;
-
-                //Default quality is TEXT
-                //Setting barcodeGraphsQuality will improve printing quality being easier to read Barcode or QRcode objects
-                if (ContainsBarcodeOrGraphObjects())
-                    barcodeOrGraphsquality = true;
-
+            {
                 //Send to print
                 if (SelectedPrinter.Name.Contains("Twin Turbo"))
                 {
-                    //0: Auto, 1: Left roll, 2: Right roll
                     int rollSel = SelectedRoll == "Auto" ? 0 : SelectedRoll == "Left" ? 1 : 2;
-                   
-                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, rollSelected: rollSel, barcodeGraphsQuality: barcodeOrGraphsquality);
+                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, rollSelected: rollSel);
                 }
                 else
-                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies, barcodeGraphsQuality: barcodeOrGraphsquality);
+                    DymoPrinter.Instance.PrintLabel(dymoSDKLabel, SelectedPrinter.Name, copies);
 
                 //If the label contains counter objects
                 //Update counter object and preview to show the incresead value of the counter
@@ -244,23 +260,6 @@ namespace WPFSDKSample.ViewModels
                 }
             }
         }
-
-        /// <summary>
-        /// Validate if label contains Barcode or QRCode objects
-        /// </summary>
-        /// <returns>True/False</returns>
-        private bool ContainsBarcodeOrGraphObjects()
-        {
-            foreach(var obj in LabelObjects)
-            {
-                if(obj.Type == DymoSDK.Interfaces.TypeObject.BarcodeObject || obj.Type == DymoSDK.Interfaces.TypeObject.QRCodeObject)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         /// <summary>
         /// Update the object value using the object name selected
         /// </summary>
@@ -297,6 +296,21 @@ namespace WPFSDKSample.ViewModels
                 image.StreamSource = ms;
                 image.EndInit();
                 return image;
+            }
+        }
+
+        private void DisplayConsumableInformation()
+        {
+            ConsumableInfoText = string.Empty;
+            if(SelectedPrinter != null && DymoPrinter.Instance.Is550Printer(SelectedPrinter.DriverName))
+            {
+                //IMPORTANT: Get consumable information may return NULL when printer is connected to the machine
+                // we recommend wait a few seconds to establish connection with printer.
+                DymoSDK.Interfaces.IConsumableInfo550Printer cons = DymoPrinter.Instance.GetCurrentLabelInsertedIn550Printer(SelectedPrinter.Name);
+                if(cons != null)
+                {
+                   ConsumableInfoText =  $"Status: {cons.RollStatus} \nConsumable: {cons.Name} \nLabels remaining: {cons.LabelsRemaining}";
+                }
             }
         }
 

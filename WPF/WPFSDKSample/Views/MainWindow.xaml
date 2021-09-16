@@ -7,7 +7,7 @@
         xmlns:VM="clr-namespace:WPFSDKSample.ViewModels"     
           xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="DYMO Connect SDK Sample" Height="650" Width="900"       
+        Title="DYMO Connect SDK Sample" Height="800" Width="900"       
         >
     <Window.DataContext>
         <VM:MainViewModel />
@@ -103,7 +103,11 @@
                         </StackPanel>
                     </WrapPanel>
                 </Border>
-                <TextBlock Text="{Binding PrintersFound,  StringFormat='Printer(s) installed {0}'}" HorizontalAlignment="Right"></TextBlock>
+                <TextBlock Text="{Binding PrintersFound,  StringFormat='Printer(s) installed {0}'}" HorizontalAlignment="Right"></TextBlock>                
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelTitle}">Current consumable information(only available on 5 series printers)</Label>
+                <TextBlock Text="{Binding ConsumableInfoText}" HorizontalAlignment="Left"></TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
