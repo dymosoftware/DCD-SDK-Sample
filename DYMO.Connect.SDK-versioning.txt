@@ -23,3 +23,7 @@
 			on March 2021. If the issue persists look at the following workarounds
 			https://github.com/dymosoftware/DCD-SDK-Sample/issues/24.
 -----------------------------------------------------------------------------------------------
+	1.4.2.20	Added communication with LabelWriter 5 series printers.
+	1.4.2.22 	Fix an issue getting response when Is550Printer() method 
+			is invoked.
+-----------------------------------------------------------------------------------------------
