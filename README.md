@@ -163,6 +163,14 @@ These are the main functions to get start
     ```javascript
     dymo.label.framework.renderLabel(labelXml, renderParamsXml, printerName) //Get label preview image of the label
     ```
+### Sample Html Pages 📋
+
+Local Web Api service should be running to be able to work with sample pages.
+
+* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/CheckEnvironment/CheckEnvironment.html](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/CheckEnvironment/CheckEnvironment.html)
+* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/VisitorManagement/VisitorManagement.html](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/VisitorManagement/VisitorManagement.html)
+* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/PreviewAndPrintLabel/PreviewAndPrintLabel.html](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/PreviewAndPrintLabel/PreviewAndPrintLabel.html)
+
 ## Important notes
 
 Opening a label file previously created from DYMO Label Software, with DYMO Connect Software installed, it will convert the structure of DLS label into DYMO Connect label.
