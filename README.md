@@ -112,7 +112,7 @@ DYMO Connect Software installed
 
 Reference to Javascript SDK file
 
-* [DYMO.Connect.Framework](http://labelwriter.com/software/dls/sdk/js/dymo.connect.framework.js)
+* [DYMO.Connect.Framework](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/dymo.connect.framework.js)
 
 ### Installing 🔧
 
