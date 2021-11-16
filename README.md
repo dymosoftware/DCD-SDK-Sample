@@ -118,7 +118,7 @@ Reference to Javascript SDK file
 
 Include the framework into your project
 
-* [https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.js](https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.js)
+* [https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.min.js](https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.min.js)
 * [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/dymo.connect.framework.js](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/dymo.connect.framework.js)
 
 ### Functions ⚙️
