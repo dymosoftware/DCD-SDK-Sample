@@ -26,4 +26,6 @@
 	1.4.2.20	Added communication with LabelWriter 5 series printers.
 	1.4.2.22 	Fix an issue getting response when Is550Printer() method 
 			is invoked.
+	1.4.2.35	Fix an issue loading DYMO printing libraries to be able to work with 
+			32-bit applications.
 -----------------------------------------------------------------------------------------------
