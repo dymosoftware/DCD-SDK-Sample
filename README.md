@@ -36,7 +36,7 @@ Run Package Manager Console
 ## Classes and methods ⚙️
 
 
-- #### DymoLabel class
+- #### DymoLabel instance
 
     - **Load label**
     ```csharp
@@ -71,7 +71,7 @@ Run Package Manager Console
 
 
 
-- ### **DymoPrint instance**
+- ### **DymoPrinter instance**
     - **Get printers** 
       - Get list of DYMO printers installed in the current machine.
       ```csharp
