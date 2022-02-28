@@ -51,7 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DymoSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DYMO.Connect.SDK.1.4.3.10-beta\lib\netstandard2.0\DymoSDK.dll</HintPath>
+      <HintPath>..\packages\DYMO.Connect.SDK.1.4.2.35\lib\netstandard2.0\DymoSDK.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\SkiaSharp.1.68.0\lib\net45\SkiaSharp.dll</HintPath>
@@ -123,8 +123,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
     <Error Condition="!Exists('..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets'))" />
-    <Error Condition="!Exists('..\packages\DYMO.Connect.SDK.1.4.3.10-beta\Build\DYMO.Connect.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DYMO.Connect.SDK.1.4.3.10-beta\Build\DYMO.Connect.SDK.targets'))" />
+    <Error Condition="!Exists('..\packages\DYMO.Connect.SDK.1.4.2.35\build\DYMO.Connect.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DYMO.Connect.SDK.1.4.2.35\build\DYMO.Connect.SDK.targets'))" />
   </Target>
   <Import Project="..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets" Condition="Exists('..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets')" />
-  <Import Project="..\packages\DYMO.Connect.SDK.1.4.3.10-beta\Build\DYMO.Connect.SDK.targets" Condition="Exists('..\packages\DYMO.Connect.SDK.1.4.3.10-beta\Build\DYMO.Connect.SDK.targets')" />
+  <Import Project="..\packages\DYMO.Connect.SDK.1.4.2.35\build\DYMO.Connect.SDK.targets" Condition="Exists('..\packages\DYMO.Connect.SDK.1.4.2.35\build\DYMO.Connect.SDK.targets')" />
 </Project>
