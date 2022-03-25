@@ -29,3 +29,4 @@
 	1.4.2.35	Fix an issue loading DYMO printing libraries to be able to work with 
 			32-bit applications.
 -----------------------------------------------------------------------------------------------
+	1.4.3.37	Improvements to detection of consumable info.
