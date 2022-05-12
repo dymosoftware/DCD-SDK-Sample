@@ -1,14 +1,34 @@
 ﻿Imports DymoSDK.Implementations
+Imports System.IO.Path
 
 Module Module1
 
     Sub Main()
         DymoSDK.App.Init()
+
+        Dim filename As String = "samplelabel.dymo"
+        Dim fullpath As String
+        fullpath = System.IO.Path.GetFullPath(filename)
+
         Dim dymoSDKLabel = DymoLabel.Instance
+        dymoSDKLabel.LoadLabelFromFilePath(fullpath)
+
+        Dim dymoSDKPrinter = DymoPrinter.Instance
+
         Dim Printers = DymoPrinter.Instance.GetPrinters()
-        For Each prt In Printers    ' Iterate through each element.  
+        Dim ConnectedPrinter = Printers.FirstOrDefault()
+
+        For Each prt In Printers    ' Iterate through each element and find a connected printer.  
             Console.WriteLine($"Printer info: {prt.DriverName}, {prt.Name}, {prt.IsTwinTurbo}")
+            If prt.IsConnected Then
+                ConnectedPrinter = prt
+            End If
         Next
+
+        If dymoSDKPrinter.PrintLabel(dymoSDKLabel, ConnectedPrinter.Name, 1, False, False, 0, False, False) Then
+            Console.WriteLine("Print successful.")
+        End If
+
         Console.ReadKey()
 
     End Sub
