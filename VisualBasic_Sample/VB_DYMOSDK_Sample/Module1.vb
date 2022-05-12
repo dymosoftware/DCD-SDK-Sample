@@ -6,10 +6,7 @@ Module Module1
     Sub Main()
         DymoSDK.App.Init()
 
-        Dim filename As String = "samplelabel.dymo"
-        Dim fullpath As String
-        fullpath = System.IO.Path.GetFullPath(filename)
-
+        Dim fullpath As String = System.IO.Path.GetFullPath("samplelabel.dymo")
         Dim dymoSDKLabel = DymoLabel.Instance
         dymoSDKLabel.LoadLabelFromFilePath(fullpath)
 
