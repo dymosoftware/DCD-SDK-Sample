@@ -178,6 +178,11 @@ Therefore, **isDCDLabel** function will return always true after label file has 
 
 **setTextMarkup** function is not supported for DYMO Connect labels. 
 
+## Publishing your app
+Please read the following thread in case you run into some issues deploying your application integrating DYMO Connect SDK.
+
+[Common deployment issues](https://github.com/dymosoftware/DCD-SDK-Sample/issues/29)
+
 ## Authors ✒️
 
 DYMO Team
