@@ -17,14 +17,12 @@
 //----------------------------------------------------------------------------
 
 
-(function()
-{
+(function() {
     // stores loaded label info
     var label;
 
     // called when the document completly loaded
-    function onload()
-    {
+    function onload() {
         var labelFile = document.getElementById('labelFile');
         var addressTextArea = document.getElementById('addressTextArea');
         var printersSelect = document.getElementById('printersSelect');
@@ -38,8 +36,7 @@
         // Generates label preview and updates corresponend <img> element
         // Note: this does not work in IE 6 & 7 because they don't support data urls
         // if you want previews in IE 6 & 7 you have to do it on the server side
-        function updatePreview()
-        {
+        function updatePreview() {
             if (!label)
                 return;
 
@@ -49,29 +46,27 @@
         }
 
         // loads all supported printers into a combo box 
-        function loadPrinters()
-        {
-            var printers = dymo.label.framework.getPrinters();
-            if (printers.length == 0)
-            {
-                alert("No DYMO printers are installed. Install DYMO printers.");
+        function loadPrintersAsync() {
+            dymo.label.framework.getPrintersAsync().then(function (printers) {
+                if (printers.length == 0) {
+                    alert("No DYMO printers are installed. Install DYMO printers.");
+                    return;
+                }
+                printers.forEach(function (printer) {
+                    let printerName = printer["name"];
+                    let option = document.createElement("option");
+                    option.value = printerName;
+                    option.appendChild(document.createTextNode(printerName));
+                    printersSelect.appendChild(option);
+                });
+            }).thenCatch(function (e) {
+                alert("Load Printers failed: " + e);;
                 return;
-            }
-
-            for (var i = 0; i < printers.length; i++)
-            {
-                var printerName = printers[i].name;
-
-                var option = document.createElement('option');
-                option.value = printerName;
-                option.appendChild(document.createTextNode(printerName));
-                printersSelect.appendChild(option);
-            }
+            });
         }
 
         // returns current address on the label 
-        function getAddress()
-        {
+        function getAddress() {
             if (!label || label.getAddressObjectCount() == 0)
                 return "";
 
@@ -79,8 +74,7 @@
         }
 
         // set current address on the label 
-        function setAddress(address)
-        {
+        function setAddress(address) {
             if (!label || label.getAddressObjectCount() == 0)
                 return;
 
@@ -88,24 +82,20 @@
         }
 
         // loads label file thwn user selects it in file open dialog
-        labelFile.onchange = function()
-        {
+        labelFile.onchange = function() {
             label = dymo.label.framework.openLabelXml("");
             var res=label.isValidLabel();
-            if (labelFile.files && labelFile.files[0] && typeof labelFile.files[0].getAsText == "function") // Firefox
-            {
+            if (labelFile.files && labelFile.files[0] && typeof labelFile.files[0].getAsText == "function") {  // Firefox
                 // open file by providing xml label definition
                 // in this example the definition is read from a local file
                 // in real world example it can come from the server, e.g. using XMLHttpRequest()
                 label = dymo.label.framework.openLabelXml(labelFile.files[0].getAsText("utf-8"));
             }
-            else
-            {
+            else {
                 // try load by opening file directly
                 // do it only if we have a full path
                 var fileName = labelFile.value;
-                if ((fileName.indexOf('/') >= 0 || fileName.indexOf('\\') >= 0) &&(fileName.indexOf('fakepath') <0 ))
-				{
+                if ((fileName.indexOf('/') >= 0 || fileName.indexOf('\\') >= 0) &&(fileName.indexOf('fakepath') <0 )) {
                     label = dymo.label.framework.openLabelFile(fileName); 
 					if(label.isDCDLabel())
 						console.log("DYMO Connect label");
@@ -113,14 +103,12 @@
 						console.log("DLS label");	
 					if(label.isValidLabel())
 						console.log("The file is a valid label");
-					else				
-					{
+					else {
 						alert(" The file is not a valid label");
 						return;
 					}
 				}
-                else
-                {
+                else {
                     // the browser returned a file name only (without path). This heppens on Safari for example
                     // in this case it is impossible to obtain file content using client-size only code,some server support is needed (see GMail IFrame file upload, ofr example)
                     // so for this sample we will inform user and open a default address label
@@ -173,8 +161,7 @@
             }
 
             // check that label has an address object
-            if (label.getAddressObjectCount() == 0)
-            {
+            if (label.getAddressObjectCount() == 0) {
                 alert("Selected label does not have an address object on it. Select another label");
                 return;
             }
@@ -186,10 +173,8 @@
         };
 
         // updates address on the label when user types in textarea field
-        addressTextArea.onkeyup = function()
-        {
-            if (!label)
-            {
+        addressTextArea.onkeyup = function() {
+            if (!label) {
                 alert('Load label before entering address data');
                 return;
             }
@@ -199,12 +184,9 @@
         }
 
         // prints the label
-        printButton.onclick = function()
-        {
-            try
-            {               
-                if (!label)
-                {
+        printButton.onclick = function() {
+            try {               
+                if (!label) {
                     alert("Load label before printing");
                     return;
                 }
@@ -220,13 +202,11 @@
         }
 
         // load printers list on startup
-        loadPrinters();
+        loadPrintersAsync();
     };
 
-    function initTests()
-	{
-		if(dymo.label.framework.init)
-		{
+    function initTests() {
+		if(dymo.label.framework.init) {
 			//dymo.label.framework.trace = true;
 			dymo.label.framework.init(onload);
 		} else {

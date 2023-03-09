@@ -17,8 +17,7 @@
 //----------------------------------------------------------------------------
 
 
-(function()
-{
+(function() {
     // stores loaded label info
     var _label;
 
@@ -30,8 +29,7 @@
     var _photoFiles = ["Photos/photo0.png", "Photos/photo2.jpg"];
 
     // return list of available layouts, load them from file if nessesary
-    function getLayouts()
-    {
+    function getLayouts() {
         if (_layouts == null)
         {
             // load layouts
@@ -49,8 +47,7 @@
     var _labelData = { text: "Name and other information" };
 
     // applies data to the label
-    function applyDataToLabel(label, labelData)
-    {
+    function applyDataToLabel(label, labelData) {
         var names = label.getObjectNames();
 
         for (var name in labelData)
@@ -59,8 +56,7 @@
     }
 
     // updates control states depend on available objects on the label
-    function updateControls()
-    {
+    function updateControls() {
         var selectPhotoButton = document.getElementById('selectPhotoButton');
         var textArea = document.getElementById('labelTextTextArea');
 
@@ -71,8 +67,7 @@
     }
 
     /// replaces the last component of the url with fileName
-    function replaceFileName(url, fileName)
-    {
+    function replaceFileName(url, fileName) {
         var i = url.lastIndexOf('/');
         var r = url.substr(0, i + 1) + fileName;
 
@@ -84,8 +79,7 @@
     }
 
     // returns an index of an item in an array. Returns -1 if not found
-    function itemIndexOf(array, item)
-    {
+    function itemIndexOf(array, item) {
         for (var i = 0; i < array.length; i++)
             if (array[i] == item) return i;
 
@@ -93,8 +87,7 @@
     }
 
     // loads the defualt layout at onload()
-    function setupDefaultLayout()
-    {
+    function setupDefaultLayout() {
         _label = dymo.label.framework.openLabelXml(_layoutFiles[0]);
         applyDataToLabel(_label, _labelData);
     }
@@ -103,8 +96,7 @@
     // Generates label preview and updates corresponend <img> element
     // Note: this does not work in IE 6 & 7 because they don't support data urls
     // if you want previews in IE 6 & 7 you have to do it on the server side
-    function updatePreview()
-    {
+    function updatePreview() {
         if (!_label)
             return;
 
@@ -115,8 +107,7 @@
     }
 
     // called when clicked on a photo
-    function photoClick(e)
-    {
+    function photoClick(e) {
         var overlay = document.getElementById('dialog-overlay');
         var wrapper = document.getElementById('dialog-wrapper');
 
@@ -155,8 +146,7 @@
     }
 
     // set "dialog" caption 
-    function dialogSetCaption(caption)
-    {
+    function dialogSetCaption(caption) {
         header = document.getElementById('dialog-header');
 
         // remove old caption
@@ -168,8 +158,7 @@
     }
 
     // event handler for selectPhotoButton.onclick event
-    function selectPhotoButtonClick()
-    {
+    function selectPhotoButtonClick() {
         var overlay = document.getElementById('dialog-overlay');
         var wrapper = document.getElementById('dialog-wrapper');
         var content = document.getElementById('dialog-content');
@@ -180,8 +169,7 @@
             content.removeChild(content.firstChild);
 
         // add photos
-        for (var i = 0; i < _photoFiles.length; i++)
-        {
+        for (var i = 0; i < _photoFiles.length; i++) {
             var a = document.createElement('a');
             //a.setAttribute("class", "photo");
             a.className = "photo";
@@ -210,8 +198,7 @@
     }
 
     // called when clicked on a layout
-    function layoutClick(e)
-    {
+    function layoutClick(e) {
         var overlay = document.getElementById('dialog-overlay');
         var wrapper = document.getElementById('dialog-wrapper');
 
@@ -220,16 +207,13 @@
         if (!ee)
             ee = window.event;
 
-        if (ee.target)
-        {
+        if (ee.target) {
             targ = ee.target;
         }
-        else if (ee.srcElement)
-        {
+        else if (ee.srcElement) {
             targ = ee.srcElement;
         }
-        if (targ.nodeType == 3) // defeat Safari bug
-        {
+        if (targ.nodeType == 3) {  // defeat Safari bug
             targ = targ.parentNode;
         }
 
@@ -244,8 +228,7 @@
     }
 
     // event handler for selectPhotoButton.onclick event
-    function changeLayoutButtonClick()
-    {
+    function changeLayoutButtonClick() {
         var overlay = document.getElementById('dialog-overlay');
         var wrapper = document.getElementById('dialog-wrapper');
         var content = document.getElementById('dialog-content');
@@ -256,8 +239,7 @@
 
         // add layouts
         var layouts = getLayouts();
-        for (var i = 0; i < layouts.length; i++)
-        {
+        for (var i = 0; i < layouts.length; i++) {
             // set layout data
             var layout = layouts[i];
             applyDataToLabel(layout, _labelData);
@@ -289,8 +271,7 @@
     }
 
     // called when the document completly loaded
-    function onload()
-    {
+    function onload() {
         var labelFile = document.getElementById('labelFile');
         var labelTextTextArea = document.getElementById('labelTextTextArea');
         var printersSelect = document.getElementById('printersSelect');
@@ -306,31 +287,28 @@
             labelTextTextArea.value = _labelData.text;
 
         // loads all supported printers into a combo box 
-        function loadPrinters()
-        {
-            var printers = dymo.label.framework.getPrinters();
-            if (printers.length == 0)
-            {
-                alert("No DYMO printers are installed. Install DYMO printers.");
+        function loadPrintersAsync() {
+            dymo.label.framework.getPrintersAsync().then(function (printers) {
+                if (printers.length == 0) {
+                    alert("No DYMO printers are installed. Install DYMO printers.");
+                    return;
+                }
+                printers.forEach(function (printer) {
+                    let printerName = printer["name"];
+                    let option = document.createElement("option");
+                    option.value = printerName;
+                    option.appendChild(document.createTextNode(printerName));
+                    printersSelect.appendChild(option);
+                });
+            }).thenCatch(function (e) {
+                alert("Load Printers failed: " + e);;
                 return;
-            }
-
-            for (var i = 0; i < printers.length; i++)
-            {
-                var printerName = printers[i].name;
-
-                var option = document.createElement('option');
-                option.value = printerName;
-                option.appendChild(document.createTextNode(printerName));
-                printersSelect.appendChild(option);
-            }
+            });
         };
 
         // updates address on the label when user types in textarea field
-        labelTextTextArea.onkeyup = function()
-        {
-            if (!_label)
-            {
+        labelTextTextArea.onkeyup = function() {
+            if (!_label) {
                 alert('Load label before entering text');
                 return;
             }
@@ -342,10 +320,8 @@
         }
 
         // prints the label
-        printButton.onclick = function()
-        {
-            if (!_label)
-            {
+        printButton.onclick = function() {
+            if (!_label) {
                 alert("Load label before printing");
                 return;
             }
@@ -358,16 +334,14 @@
         changeLayoutButton.onclick = changeLayoutButtonClick;
 
         // onload() initialization
-        loadPrinters();
+        loadPrintersAsync();
         setupDefaultLayout();
         updatePreview();
         updateControls();
     };
 
-    function initTests()
-	{
-		if(dymo.label.framework.init)
-		{
+    function initTests() {
+		if(dymo.label.framework.init) {
 			//dymo.label.framework.trace = true;
 			dymo.label.framework.init(onload);
 		} else {

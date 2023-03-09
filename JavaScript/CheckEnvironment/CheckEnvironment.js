@@ -17,22 +17,18 @@
 //----------------------------------------------------------------------------
 
 
-(function()
-{
+(function() {
     // called when the document completly loaded
-    function onload()
-    {
+    function onload() {
         var checkButton = document.getElementById('checkButton');
         var outputDiv = document.getElementById('output');
 
-        function clearOutput()
-        {
+        function clearOutput() {
             while (outputDiv.children.length > 0)
                 outputDiv.removeChild(outputDiv.firstChild);
         }
 
-        function outputLine(text)
-        {
+        function outputLine(text) {
             var elem = document.createElement("div");
             elem.appendChild(document.createTextNode(text));
 
@@ -41,10 +37,8 @@
 
 
         // prints the label
-        checkButton.onclick = function()
-        {
-            try
-            {
+        checkButton.onclick = function() {
+            try {
                 //clearOutput();
                 var result = dymo.label.framework.checkEnvironment();
                 outputLine(" ");
@@ -55,8 +49,7 @@
 				}
                 outputLine("errorDetails: " + result.errorDetails);				
             }
-            catch(e)
-            {
+            catch(e) {
                 alert(e.message || e);
             }
         }
@@ -64,10 +57,8 @@
 	
 	
 	
-	function initTests()
-	{
-		if(dymo.label.framework.init)
-		{
+	function initTests() {
+		if(dymo.label.framework.init) {
 			//dymo.label.framework.trace = true;
 			dymo.label.framework.init(onload);
 		} else {
