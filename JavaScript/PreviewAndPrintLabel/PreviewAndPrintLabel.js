@@ -20,6 +20,63 @@
 (function() {
     // stores loaded label info
     var label;
+    var _printers = [];
+
+    function createPrintersTableRow(table, name, value) {
+        var row = document.createElement("tr");
+
+        var cell1 = document.createElement("td");
+        cell1.appendChild(document.createTextNode(name + ': '));
+
+        var cell2 = document.createElement("td");
+        cell2.appendChild(document.createTextNode(value));
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+
+        table.appendChild(row);
+    }
+
+    function populatePrinterDetail() {
+        var printerDetail = document.getElementById("printerDetail");
+        printerDetail.innerHTML = "";
+
+        var myPrinter = _printers[document.getElementById("printersSelect").value];
+        if (myPrinter === undefined)
+            return;
+
+        var table = document.createElement("table");
+        createPrintersTableRow(table, 'PrinterType', myPrinter['printerType'])
+        createPrintersTableRow(table, 'PrinterName', myPrinter['name'])
+        createPrintersTableRow(table, 'ModelName', myPrinter['modelName'])
+        createPrintersTableRow(table, 'IsLocal', myPrinter['isLocal'])
+        createPrintersTableRow(table, 'IsConnected', myPrinter['isConnected'])
+        createPrintersTableRow(table, 'IsTwinTurbo', myPrinter['isTwinTurbo'])
+
+        dymo.label.framework.is550PrinterAsync(myPrinter.name).then(function (isRollStatusSupported) {
+            //fetch one consumable information in the printer list.
+            if (isRollStatusSupported) {
+                createPrintersTableRow(table, 'IsRollStatusSupported', 'True')
+                dymo.label.framework.getConsumableInfoIn550PrinterAsync(myPrinter.name).then(function (consumableInfo) {
+                    createPrintersTableRow(table, 'SKU', consumableInfo['sku'])
+                    createPrintersTableRow(table, 'Consumable Name', consumableInfo['name'])
+                    createPrintersTableRow(table, 'Labels Remaining', consumableInfo['labelsRemaining'])
+                    createPrintersTableRow(table, 'Roll Status', consumableInfo['rollStatus'])
+                }).thenCatch(function (e) {
+                    createPrintersTableRow(table, 'SKU', 'n/a')
+                    createPrintersTableRow(table, 'Consumable Name', 'n/a')
+                    createPrintersTableRow(table, 'Labels Remaining', 'n/a')
+                    createPrintersTableRow(table, 'Roll Status', 'n/a')
+                })
+            } else {
+                createPrintersTableRow(table, 'IsRollStatusSupported', 'False')
+            }
+        }).thenCatch(function (e) {
+            createPrintersTableRow(table, 'IsRollStatusSupported', e.message)
+        })
+
+        printerDetail.appendChild(table);
+    }
 
     // called when the document completly loaded
     function onload() {
@@ -47,11 +104,13 @@
 
         // loads all supported printers into a combo box 
         function loadPrintersAsync() {
+            _printers = [];
             dymo.label.framework.getPrintersAsync().then(function (printers) {
                 if (printers.length == 0) {
                     alert("No DYMO printers are installed. Install DYMO printers.");
                     return;
                 }
+                _printers = printers;
                 printers.forEach(function (printer) {
                     let printerName = printer["name"];
                     let option = document.createElement("option");
@@ -59,6 +118,7 @@
                     option.appendChild(document.createTextNode(printerName));
                     printersSelect.appendChild(option);
                 });
+                populatePrinterDetail();
             }).thenCatch(function (e) {
                 alert("Load Printers failed: " + e);;
                 return;
@@ -200,6 +260,8 @@
                 alert(e.message || e);
             }
         }
+
+        printersSelect.onchange = populatePrinterDetail;
 
         // load printers list on startup
         loadPrintersAsync();
