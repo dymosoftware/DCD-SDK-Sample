@@ -112,14 +112,14 @@ DYMO Connect Software installed
 
 Reference to Javascript SDK file
 
-* [DYMO.Connect.Framework](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/dymo.connect.framework.js)
+* [DYMO.Connect.Framework](https://qajavascriptsdktests.azurewebsites.net/JavaScript/dymo.connect.framework.js)
 
 ### Installing 🔧
 
 Include the framework into your project
 
 * [https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.min.js](https://github.com/dymosoftware/dymo-connect-framework/blob/master/dymo.connect.framework.min.js)
-* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/dymo.connect.framework.js](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/dymo.connect.framework.js)
+* [https://qajavascriptsdktests.azurewebsites.net/JavaScript/dymo.connect.framework.js](https://qajavascriptsdktests.azurewebsites.net/JavaScript/dymo.connect.framework.js)
 
 ### Functions ⚙️
 
@@ -167,9 +167,9 @@ These are the main functions to get start
 
 Local Web Api service should be running to be able to work with sample pages.
 
-* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/CheckEnvironment/CheckEnvironment.html](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/CheckEnvironment/CheckEnvironment.html)
-* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/VisitorManagement/VisitorManagement.html](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/VisitorManagement/VisitorManagement.html)
-* [https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/PreviewAndPrintLabel/PreviewAndPrintLabel.html](https://s3.amazonaws.com/download.dymo.com/dymo/Software/JavaScript/PreviewAndPrintLabel/PreviewAndPrintLabel.html)
+* [https://qajavascriptsdktests.azurewebsites.net/JavaScript/CheckEnvironment/CheckEnvironment.html](https://qajavascriptsdktests.azurewebsites.net/JavaScript/CheckEnvironment/CheckEnvironment.html)
+* [https://qajavascriptsdktests.azurewebsites.net/JavaScript/VisitorManagement/VisitorManagement.html](https://qajavascriptsdktests.azurewebsites.net/JavaScript/VisitorManagement/VisitorManagement.html)
+* [https://qajavascriptsdktests.azurewebsites.net/JavaScript/PreviewAndPrintLabel/PreviewAndPrintLabel.html](https://qajavascriptsdktests.azurewebsites.net/JavaScript/PreviewAndPrintLabel/PreviewAndPrintLabel.html)
 
 ## Important notes
 
