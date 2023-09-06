@@ -30,3 +30,6 @@
 			32-bit applications.
 -----------------------------------------------------------------------------------------------
 	1.4.3.37	Improvements to detection of consumable info.
+-----------------------------------------------------------------------------------------------
+	1.4.3.21	New and updated labels.
+			Introduce async methods to improve communication between SDK and Printers.
