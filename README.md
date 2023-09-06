@@ -1,12 +1,17 @@
 # DYMO Connect SDK  
 
+```diff
+- IMPORTANT:
+Starting from version 1.4.4.21, awaitable methods have been introduced in DymoPrinter class to improve
+communication between SDK and printers.
+```
+
 ## Getting Started 🚀
 
 These instructions will help you to understand how DYMO Connect SDK works for .NET and Javascript.
 
 # .NET Sample
 This is a WPF sample using DYM.Connect.SDK nuget package.
-
 
 
 ### Installing 🔧
@@ -70,33 +75,46 @@ Run Package Manager Console
 
 
 
-
 - ### **DymoPrinter instance**
     - **Get printers** 
       - Get list of DYMO printers installed in the current machine.
       ```csharp
-      IEnumerable<IPrinter> GetPrinters() 
+      Task<IEnumerable<IPrinter>> GetPrinters()
       ```
     
     - **Print label**  
       - Print an instantiated DymoLabel object in the selected printer.
       ```csharp
-         bool PrintLabel(DymoLabel label, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, bool chainMarks 
-        = false,  bool barcodeGraphsQuality = false) 
+      async Task<bool> PrintLabel(
+      IDymoLabel label, /* Label instance */
+      string printerName, /* Printer name */
+      int copies = 1, /* Number of copies */
+      bool collate = false, /* Collate printing label */
+      bool mirror = false, /* Mirroring label */
+      int rollSelected = 0, /* It applies only for Twin Turbo 450 printer --> 0: left, 1:right */
+      bool chainMarks = false, /* Chain marks when label printer is D1 */
+      bool barcodeGraphsQuality = false /* Activate Barcode and graphics quality */)
        ```
       - Print a list of instantiated DymoLabel objects in the selected printer.      
       ```csharp
-      bool PrintLabel(IEnumerable<DymoLabel> labels, string printerName, int copies = 1, bool collate = false, bool mirror = false, int rollSelected = 0, 
-      bool chainMarks=false,  bool barcodeGraphsQuality = false)
+      async Task<bool> PrintLabel(
+      IEnumerable<IDymoLabel> labelsCollection, /* Collection of labels instances */
+      string printerName, /* Printer name */
+      int copies = 1, /* Number of copies */
+      bool collate = false, /* Collate printing label */
+      bool mirror = false, /* Mirroring label */
+      int rollSelected = 0, /* It applies only for Twin Turbo 450 printer --> 0: left, 1:right */
+      bool chainMarks = false, /* Chain marks when label printer is D1 */
+      bool barcodeGraphsQuality = false /* Activate Barcode and graphics quality */)
       ```
     - **LW 550 printer methods(these methods will not have effect when selected printer does not belong to 550 series)**  
       - Verify if selected printer belongs to 550 series.
       ```csharp
-         bool Is550Printer(string printerName) 
+      Task<bool> IsRollStatusSupported(string printerName)
        ```
       - Get information about current label inserted in the selected printer.      
       ```csharp
-      IConsumableInfo550Printer GetCurrentLabelInsertedIn550Printer(string printerName)
+      async Task<IRollStatusInPrinter> GetRollStatusInPrinter(string printerName)
       ```
 
 
