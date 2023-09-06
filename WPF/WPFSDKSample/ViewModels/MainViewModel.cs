@@ -1,14 +1,9 @@
 ﻿using DymoSDK.Implementations;
 using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace WPFSDKSample.ViewModels
@@ -205,9 +200,18 @@ namespace WPFSDKSample.ViewModels
         {
             DymoSDK.App.Init();
             dymoSDKLabel = DymoLabel.Instance;
-            Printers = DymoPrinter.Instance.GetPrinters();
             TwinTurboRolls = new List<string>() { "Auto", "Left", "Right" };
+            LoadPrinters();
         }
+
+        /// <summary>
+        /// Load Printers
+        /// </summary>
+        private async void LoadPrinters()
+        {
+            Printers = await DymoPrinter.Instance.GetPrinters();
+        }
+        
         /// <summary>
         /// Open a Dymo label file and load the content in the instance of the class
         /// Get the preview image of the label
@@ -299,17 +303,20 @@ namespace WPFSDKSample.ViewModels
             }
         }
 
-        private void DisplayConsumableInformation()
+        private async Task DisplayConsumableInformation()
         {
             ConsumableInfoText = string.Empty;
-            if(SelectedPrinter != null && DymoPrinter.Instance.Is550Printer(SelectedPrinter.DriverName))
+            if (SelectedPrinter != null)
             {
-                //IMPORTANT: Get consumable information may return NULL when printer is connected to the machine
-                // we recommend wait a few seconds to establish connection with printer.
-                DymoSDK.Interfaces.IConsumableInfo550Printer cons = DymoPrinter.Instance.GetCurrentLabelInsertedIn550Printer(SelectedPrinter.Name);
-                if(cons != null)
+                if (await DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
                 {
-                   ConsumableInfoText =  $"Status: {cons.RollStatus} \nConsumable: {cons.Name} \nLabels remaining: {cons.LabelsRemaining}";
+                    //IMPORTANT: Get consumable information may return NULL when printer is connected to the machine
+                    // we recommend wait a few seconds to establish connection with printer.
+                    var rollStatusInPrinter = await DymoPrinter.Instance.GetRollStatusInPrinter(SelectedPrinter.DriverName);
+                    if (rollStatusInPrinter != null)
+                    {
+                        ConsumableInfoText = $"Status: {rollStatusInPrinter.RollStatus} \nConsumable: {rollStatusInPrinter.Name} \nLabels remaining: {rollStatusInPrinter.LabelsRemaining}";
+                    }
                 }
             }
         }
