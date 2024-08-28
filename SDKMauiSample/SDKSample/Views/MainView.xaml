@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SDKSample.ViewModels"
+             x:Class="SDKSample.Views.MainView"
+             Title="DYMO SDK Sample">    
+    <ScrollView >
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="{x:Type StackLayout}">
+                    <Setter Property="Margin" Value="5" />
+                </Style>
+                <Style TargetType="{x:Type FlexLayout}">
+                    <Setter Property="Margin" Value="5" />
+                </Style>
+                <Style x:Key="LabelTitle" TargetType="Label">
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </Style>
+                <Style x:Key="ActionButton" TargetType="Button">
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="Background" Value="#86c52b" />
+                    <Setter Property="TextColor" Value="#48552c" />
+                    <Setter Property="FontAttributes" Value="Bold"/>
+                </Style>
+                <Style x:Key="BorderPanel" TargetType="Border">
+                    <Setter Property="Background" Value="#f2f2f2"></Setter>
+                    <Setter Property="Stroke" Value="#cbcbcb"></Setter>
+                    <Setter Property="StrokeThickness" Value="1"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
+                <StackLayout>
+                    <Label Style="{StaticResource LabelTitle}">Open a label file (.dymo, .label)</Label>
+                    <Border Style="{StaticResource BorderPanel}">
+                        <StackLayout Padding="10,10">                           
+                            <Button Command="{Binding OpenFileCommand}" 
+                                    Style="{StaticResource ActionButton}" WidthRequest="200" HeightRequest="30" Text="Browse..."></Button>
+                            <Label FontSize="15" IsEnabled="False" Text="{Binding FileName}" WidthRequest="200"></Label>
+                        </StackLayout>
+                    </Border>
+                </StackLayout>
+                <StackLayout>
+                    <Label Style="{StaticResource LabelTitle}">Label objects</Label>
+                    <Border Style="{StaticResource BorderPanel}">
+                        <StackLayout>
+                            <StackLayout>
+                                <Picker Title="Select an object to update" ItemsSource="{Binding LabelObjects}"
+                                        SelectedItem="{Binding SelectedLabelObject}"
+                                        ItemDisplayBinding="{Binding Name}"></Picker>
+                            </StackLayout>
+                            <StackLayout>
+                                <StackLayout>
+                                    <Label FontSize="12">Object value</Label>
+                                    <Entry Text="{Binding ObjectValue}" Background="White"></Entry>  
+                                </StackLayout>
+                                <StackLayout>
+                                    <Button Command="{Binding UpdateLabelObjectCommand}" Style="{StaticResource ActionButton}" Text="Update value"></Button>
+                                </StackLayout>
+                            </StackLayout>                            
+                        </StackLayout>
+                    </Border>
+                </StackLayout>
+                <StackLayout>                    
+                    <Border Style="{StaticResource BorderPanel}">
+                        <StackLayout>
+                            <Button Command="{Binding ShowPreviewCommand}" Style="{StaticResource ActionButton}" Text="Show Preview Image"></Button>
+                        </StackLayout>
+                     </Border>
+                </StackLayout>
+                <StackLayout>
+                    <Label Style="{StaticResource LabelTitle}">Printers</Label>
+                    <Border Style="{StaticResource BorderPanel}">
+                        <StackLayout>
+                            <StackLayout>
+                                <Label FontAttributes="Bold" FontSize="12">Select a printer</Label>
+                                <Picker ItemsSource="{Binding Printers}"
+                                        SelectedItem="{Binding SelectedPrinter, Mode=OneWayToSource}"
+                                        ItemDisplayBinding="{Binding Name}"></Picker>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label FontAttributes="Bold" FontSize="12">Roll selection (Twin turbo 450 printer)</Label>
+                                <Picker ItemsSource="{Binding TwinTurboRolls}"
+                                        SelectedItem="{Binding SelectedRoll, Mode=OneWayToSource}"></Picker>
+                            </StackLayout>
+                            <StackLayout>
+                                <Button Command="{Binding PrintLabelCommand}" 
+                                        Style="{StaticResource ActionButton}" Margin="25" WidthRequest="120" Text="Print label" ></Button>
+                            </StackLayout>
+                        </StackLayout>
+                    </Border>
+                    <Label Text="{Binding PrintersFound,  StringFormat='Printer(s) installed {0}'}" HorizontalTextAlignment="End"></Label>
+                </StackLayout>
+                <StackLayout IsVisible="False">
+                    <Label Style="{StaticResource LabelTitle}">Current consumable information(only available on 5 series printers)</Label>
+                    <Label FontSize="15" Text="{Binding ConsumableInfoText}" HorizontalTextAlignment="Start"></Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

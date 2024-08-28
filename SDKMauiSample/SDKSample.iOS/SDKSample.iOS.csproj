@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-ios</TargetFramework>
+		<SupportedOSPlatformVersion>11.0</SupportedOSPlatformVersion>
+		<OutputType>Exe</OutputType>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseMaui>true</UseMaui>
+		<ApplicationId>com.dymo.iOSsample</ApplicationId>
+		<ApplicationTitle>DYMO SDK Sample</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" />
+		<PackageReference Include="DYMO.CrossPlatform.Common.iOS" Version="1.4.5.9-beta" />
+		<PackageReference Include="DYMO.LabelAPI.iOS" Version="1.4.5.9-beta" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SDKSample\SDKSample.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\dotnet_bot_devices%402x.png">
+	    <Link>Resources\dotnet_bot_devices%402x.png</Link>
+	  </BundleResource>
+	  <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\dotnet_bot_devices%403x.png">
+	    <Link>Resources\dotnet_bot_devices%403x.png</Link>
+	  </BundleResource>
+	</ItemGroup>
+</Project>

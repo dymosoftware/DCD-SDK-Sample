@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SDKSample.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SDKSample.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="SDKSample">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:MainView}"
+        Route="MainView" />
+
+</Shell>
