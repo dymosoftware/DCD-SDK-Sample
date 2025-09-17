@@ -70,7 +70,7 @@
               <TextSpan>
                 <Text>DYMO</Text>
                 <FontInfo>
-                  <FontName>Segoe UI</FontName>
+                  <FontName>Noto Sans</FontName>
                   <FontSize>8.8</FontSize>
                   <IsBold>False</IsBold>
                   <IsItalic>False</IsItalic>
@@ -87,7 +87,7 @@
               <TextSpan>
                 <Text>3 Glenlake Parkway</Text>
                 <FontInfo>
-                  <FontName>Segoe UI</FontName>
+                  <FontName>Noto Sans</FontName>
                   <FontSize>8.8</FontSize>
                   <IsBold>False</IsBold>
                   <IsItalic>False</IsItalic>
@@ -104,7 +104,7 @@
               <TextSpan>
                 <Text>Atlanta, GA 30328</Text>
                 <FontInfo>
-                  <FontName>Segoe UI</FontName>
+                  <FontName>Noto Sans</FontName>
                   <FontSize>8.8</FontSize>
                   <IsBold>False</IsBold>
                   <IsItalic>False</IsItalic>
