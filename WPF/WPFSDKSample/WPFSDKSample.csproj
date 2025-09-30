@@ -101,7 +101,7 @@
       <HintPath>..\packages\AWSSDK.S3.3.7.305.4\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="DymoSDK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6b759b214928ae41, processorArchitecture=MSIL">
-      <HintPath>..\packages\DYMO.Connect.SDK.1.4.6.92\lib\netstandard2.0\DymoSDK.dll</HintPath>
+      <HintPath>..\packages\DYMO.Connect.SDK.1.4.4.21\lib\netstandard2.0\DymoSDK.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.InfoPath.SemiTrust, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="OpenTK, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
@@ -241,7 +241,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\SkiaSharp.2.80.2\build\net462\SkiaSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.2.80.2\build\net462\SkiaSharp.targets'))" />
-    <Error Condition="!Exists('..\packages\DYMO.Connect.SDK.1.4.6.92\Build\DYMO.Connect.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DYMO.Connect.SDK.1.4.6.92\Build\DYMO.Connect.SDK.targets'))" />
+    <Error Condition="!Exists('..\packages\DYMO.Connect.SDK.1.4.4.21\Build\DYMO.Connect.SDK.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DYMO.Connect.SDK.1.4.4.21\Build\DYMO.Connect.SDK.targets'))" />
   </Target>
-  <Import Project="..\packages\DYMO.Connect.SDK.1.4.6.92\Build\DYMO.Connect.SDK.targets" Condition="Exists('..\packages\DYMO.Connect.SDK.1.4.6.92\Build\DYMO.Connect.SDK.targets')" />
+  <Import Project="..\packages\DYMO.Connect.SDK.1.4.4.21\Build\DYMO.Connect.SDK.targets" Condition="Exists('..\packages\DYMO.Connect.SDK.1.4.4.21\Build\DYMO.Connect.SDK.targets')" />
 </Project>
