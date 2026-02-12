@@ -18,8 +18,8 @@
 		<PackageReference Include="Microsoft.Maui.Controls" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" />
-		<PackageReference Include="DYMO.CrossPlatform.Common.iOS" Version="1.4.5.9-beta" />
-		<PackageReference Include="DYMO.LabelAPI.iOS" Version="1.4.5.9-beta" />
+		<PackageReference Include="DYMO.CrossPlatform.Common.iOS" Version="1.6.0" />
+		<PackageReference Include="DYMO.LabelAPI.iOS" Version="1.6.0" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -7,9 +7,10 @@
 		<RootNamespace>SDKSample.WinUI</RootNamespace>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<Platforms>x86;x64;ARM64</Platforms>
+		<UseRidGraph>true</UseRidGraph>
 		<RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
 		<PublishProfile>win10-$(Platform).pubxml</PublishProfile>
-    <UseWinUI>true</UseWinUI>
+		<UseWinUI>true</UseWinUI>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -19,8 +20,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DYMO.CrossPlatform.Common.Windows" Version="1.4.5.9-beta" />
-		<PackageReference Include="DYMO.LabelAPI.Windows" Version="1.4.5.9-beta" />
+		<PackageReference Include="DYMO.CrossPlatform.Common.Windows" Version="1.6.0" />
+		<PackageReference Include="DYMO.LabelAPI.Windows" Version="1.6.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" />

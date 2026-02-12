@@ -2,8 +2,7 @@
 
 ```diff
 - IMPORTANT:
-Starting from version 1.4.4.21, awaitable methods have been introduced in DymoPrinter class to improve
-communication between SDK and printers.
+There have been API Changes in 1.6.0 compared to 1.4.4.21. In particular, IsRollStatus and GetPrinters are no longer tasks. We have also split our SDK up into different parts, so please ensure you are installing the correct packages. In general, we find that including DYMO.Connect.SDK, DYMO.LabelAPI.PlatformSpecific, and DYMO.CrossPlatform.Common.PlatformSpecific should be enough, as nuget should also install dependencies automatically.
 ```
 
 ## Getting Started 🚀
@@ -79,7 +78,7 @@ Run Package Manager Console
     - **Get printers** 
       - Get list of DYMO printers installed in the current machine.
       ```csharp
-      Task<IEnumerable<IPrinter>> GetPrinters()
+      IEnumerable<IPrinter> GetPrinters()
       ```
     
     - **Print label**  
@@ -110,7 +109,7 @@ Run Package Manager Console
     - **LW 550 printer methods(these methods will not have effect when selected printer does not belong to 550 series)**  
       - Verify if selected printer belongs to 550 series.
       ```csharp
-      Task<bool> IsRollStatusSupported(string printerName)
+      bool IsRollStatusSupported(string printerName)
        ```
       - Get information about current label inserted in the selected printer.      
       ```csharp
@@ -200,6 +199,9 @@ Therefore, **isDCDLabel** function will return always true after label file has 
 Please read the following thread in case you run into some issues deploying your application integrating DYMO Connect SDK.
 
 [Common deployment issues](https://github.com/dymosoftware/DCD-SDK-Sample/issues/29)
+
+# Python Sample
+We also have a python wrapper around our SDK available [here](https://github.com/dymosoftware/DCD-SDK-Python-Sample).
 
 ## Authors ✒️
 

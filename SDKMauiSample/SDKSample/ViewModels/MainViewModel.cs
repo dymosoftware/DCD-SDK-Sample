@@ -420,7 +420,7 @@ namespace SDKSample.ViewModels
             {
                 ConsumableInfoText = string.Empty;
                 if (SelectedPrinter != null &&
-                    await DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
+                    DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
                 {
                     IRollStatusInPrinter cons = await DymoPrinter.Instance.GetRollStatusInPrinter(SelectedPrinter.Name);
                     if (cancellationToken.IsCancellationRequested)
@@ -445,7 +445,7 @@ namespace SDKSample.ViewModels
         private async void UpdatePrintersList()
         {
             Printers.Clear();
-            var printersResult = await DymoPrinterSDK.GetPrinters();
+            var printersResult = DymoPrinterSDK.GetPrinters();
             foreach (var item in printersResult)
             {
                 Printers.Add(item);

@@ -24,7 +24,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" />
-		<PackageReference Include="DYMO.Connect.SDK" Version="1.4.5.9-beta" />
+		<PackageReference Include="DYMO.Connect.SDK" Version="1.6.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" />
 		<PackageReference Include="CommunityToolkit.Maui" />
 	</ItemGroup>
