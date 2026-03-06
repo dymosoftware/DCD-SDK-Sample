@@ -444,12 +444,16 @@ namespace SDKSample.ViewModels
         /// </summary>
         private async void UpdatePrintersList()
         {
-            Printers.Clear();
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Printers.Clear();
+            
             var printersResult = DymoPrinterSDK.GetPrinters();
             foreach (var item in printersResult)
             {
                 Printers.Add(item);
             }
+            });
         }
 
         /// <summary>

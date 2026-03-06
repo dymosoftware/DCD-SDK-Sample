@@ -1,8 +1,13 @@
 # DYMO Connect SDK  
 
-```diff
-- IMPORTANT:
-There have been API Changes in 1.6.0 compared to 1.4.4.21. In particular, IsRollStatus and GetPrinters are no longer tasks. We have also split our SDK up into different parts, so please ensure you are installing the correct packages. In general, we find that including DYMO.Connect.SDK, DYMO.LabelAPI.PlatformSpecific, and DYMO.CrossPlatform.Common.PlatformSpecific should be enough, as nuget should also install dependencies automatically.
+# Important Changes
+There have been API Changes in 1.6.0 compared to 1.4.4.21. In particular, IsRollStatus and GetPrinters are no longer tasks. 
+Please include DYMO.Connect.SDK, DYMO.LabelAPI.PlatformSpecfic, and DYMO.CrossPlatform.Common.PlatformSpecific depending on your target 
+We have split our SDK up into different parts, so please ensure you are installing the correct packages. In general, we find that including DYMO.Connect.SDK, DYMO.LabelAPI.PlatformSpecific, and DYMO.CrossPlatform.Common.PlatformSpecific should be enough, as nuget should also install dependencies automatically. For example, on windows you would include the following in your csproj:
+```
+<PackageReference Include="DYMO.Connect.SDK" Version="1.6.0" />
+<PackageReference Include="DYMO.CrossPlatform.Common.Windows" Version="1.6.0" />
+<PackageReference Include="DYMO.LabelAPI.Windows" Version="1.6.0" />
 ```
 
 ## Getting Started 🚀
@@ -10,15 +15,14 @@ There have been API Changes in 1.6.0 compared to 1.4.4.21. In particular, IsRoll
 These instructions will help you to understand how DYMO Connect SDK works for .NET and Javascript.
 
 # .NET Sample
-This is a WPF sample using DYM.Connect.SDK nuget package.
-
+We have various samples using DYM.Connect.SDK nuget package in .NET. We have a WPF sample, a Maui sample, and a VB sample.
 
 ### Installing 🔧
 
 Open the project on Visual Studio
 
 ```
-File > Open > Project/Solution > Select WPFSDKSample.csproj
+File > Open > Project/Solution > Select the desired project
 ```
 
 Run Package Manager Console
@@ -29,8 +33,19 @@ Run Package Manager Console
 
 ## Nuget package 📦
 
-* [DYMO.Connect.SDK](https://www.nuget.org/packages/DYMO.Connect.SDK/) - The nuget package required
-
+* [DYMO.Connect.SDK](https://www.nuget.org/packages/DYMO.Connect.SDK/) - The nuget package required\
+For Windows:
+* [DYMO.LabelAPI.Windows](https://www.nuget.org/packages/DYMO.LabelAPI.Windows)
+* [DYMO.CrossPlatform.Common.Windows](https://www.nuget.org/packages/DYMO.CrossPlatform.Windows)\
+For Mac:
+* [DYMO.LabelAPI.Mac](https://www.nuget.org/packages/DYMO.LabelAPI.Mac)
+* [DYMO.CrossPlatform.Common.Mac](https://www.nuget.org/packages/DYMO.CrossPlatform.Mac)\
+For iOS:
+* [DYMO.LabelAPI.iOS](https://www.nuget.org/packages/DYMO.LabelAPI.iOS)
+* [DYMO.CrossPlatform.Common.iOS](https://www.nuget.org/packages/DYMO.CrossPlatform.iOS)\
+For Android:
+* [DYMO.LabelAPI.Android](https://www.nuget.org/packages/DYMO.LabelAPI.Android)
+* [DYMO.CrossPlatform.Common.Android](https://www.nuget.org/packages/DYMO.CrossPlatform.Android)
 ## Dependencies 🛠️
 
 * [NETStandard](https://www.nuget.org/packages/NETStandard.Library/) - NETStandard.Library (>= 2.0.0) 

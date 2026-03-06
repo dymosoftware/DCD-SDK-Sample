@@ -209,7 +209,7 @@ namespace WPFSDKSample.ViewModels
         /// </summary>
         private async void LoadPrinters()
         {
-            Printers = await DymoPrinter.Instance.GetPrinters();
+            Printers = DymoPrinter.Instance.GetPrinters();
         }
         
         /// <summary>
@@ -308,7 +308,7 @@ namespace WPFSDKSample.ViewModels
             ConsumableInfoText = string.Empty;
             if (SelectedPrinter != null)
             {
-                if (await DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
+                if (DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
                 {
                     //IMPORTANT: Get consumable information may return NULL when printer is connected to the machine
                     // we recommend wait a few seconds to establish connection with printer.

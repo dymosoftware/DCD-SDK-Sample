@@ -100,9 +100,9 @@
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.S3.3.7.305.4\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
-    <Reference Include="DymoSDK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6b759b214928ae41, processorArchitecture=MSIL">
-      <HintPath>..\packages\DYMO.Connect.SDK.1.4.4.21\lib\netstandard2.0\DymoSDK.dll</HintPath>
-    </Reference>
+	<PackageReference Include="DYMO.Connect.SDK" Version="1.6.0" />
+	<PackageReference Include="DYMO.CrossPlatform.Common.Windows" Version="1.6.0" />
+	<PackageReference Include="DYMO.LabelAPI.Windows" Version="1.6.0" />
     <Reference Include="Microsoft.Office.Interop.InfoPath.SemiTrust, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="OpenTK, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.3.1.0\lib\net20\OpenTK.dll</HintPath>

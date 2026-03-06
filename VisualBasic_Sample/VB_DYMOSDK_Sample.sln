@@ -1,20 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB_DYMOSDK_Sample", "VB_DYMOSDK_Sample\VB_DYMOSDK_Sample.vbproj", "{2915D77C-375E-403B-B4AE-445B0FCB413A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Debug|ARM64.Build.0 = Debug|ARM64
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Debug|x64.ActiveCfg = Debug|x64
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Debug|x64.Build.0 = Debug|x64
 		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Release|ARM64.ActiveCfg = Release|ARM64
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Release|ARM64.Build.0 = Release|ARM64
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Release|x64.ActiveCfg = Release|x64
+		{2915D77C-375E-403B-B4AE-445B0FCB413A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

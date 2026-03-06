@@ -22,7 +22,7 @@ Module Module1
             End If
         Next
 
-        If dymoSDKPrinter.PrintLabel(dymoSDKLabel, ConnectedPrinter.Name, 1, False, False, 0, False, False) Then
+        If dymoSDKPrinter.PrintLabel(dymoSDKLabel, ConnectedPrinter.Name, 1, False, False, 0, False, False).GetAwaiter().GetResult Then
             Console.WriteLine("Print successful.")
         End If
 
