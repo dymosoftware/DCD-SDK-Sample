@@ -2,7 +2,7 @@
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -139,9 +139,17 @@ namespace WPFSDKSample.ViewModels
             {
                 _selectedPrinter = value;
                 NotifyPropertyChanged("SelectedPrinter");
-                DisplayConsumableInformation();
+
+                if (_cancellationTokenSource != null)
+                    _cancellationTokenSource.Cancel();
+
+                _cancellationTokenSource = new CancellationTokenSource();
+
+                DisplayConsumableInformation(_cancellationTokenSource.Token);
             }
         }
+
+        CancellationTokenSource _cancellationTokenSource;
 
         List<string> _twinTurboRolls;
         public List<string> TwinTurboRolls
@@ -195,23 +203,19 @@ namespace WPFSDKSample.ViewModels
 
         DymoSDK.Interfaces.IDymoLabel dymoSDKLabel;
 
-
         public MainViewModel()
         {
             DymoSDK.App.Init();
             dymoSDKLabel = DymoLabel.Instance;
             TwinTurboRolls = new List<string>() { "Auto", "Left", "Right" };
-            LoadPrinters();
+            UploadPrintersAsync();
         }
 
-        /// <summary>
-        /// Load Printers
-        /// </summary>
-        private async void LoadPrinters()
+        private async void UploadPrintersAsync()
         {
             Printers = DymoPrinter.Instance.GetPrinters();
         }
-        
+
         /// <summary>
         /// Open a Dymo label file and load the content in the instance of the class
         /// Get the preview image of the label
@@ -303,20 +307,24 @@ namespace WPFSDKSample.ViewModels
             }
         }
 
-        private async Task DisplayConsumableInformation()
+        private async void DisplayConsumableInformation(CancellationToken cancellationToken)
         {
+            if (cancellationToken.IsCancellationRequested)
+                return;
+
             ConsumableInfoText = string.Empty;
-            if (SelectedPrinter != null)
+            if (SelectedPrinter != null &&
+                DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
             {
-                if (DymoPrinter.Instance.IsRollStatusSupported(SelectedPrinter.DriverName))
+                //IMPORTANT: Get consumable information may return NULL when printer is connected to the machine
+                // we recommend wait a few seconds to establish connection with printer.
+                DymoSDK.Interfaces.IRollStatusInPrinter cons = await DymoPrinter.Instance.GetRollStatusInPrinter(SelectedPrinter.Name);
+                if (cancellationToken.IsCancellationRequested)
+                    return;
+
+                if (cons != null)
                 {
-                    //IMPORTANT: Get consumable information may return NULL when printer is connected to the machine
-                    // we recommend wait a few seconds to establish connection with printer.
-                    var rollStatusInPrinter = await DymoPrinter.Instance.GetRollStatusInPrinter(SelectedPrinter.DriverName);
-                    if (rollStatusInPrinter != null)
-                    {
-                        ConsumableInfoText = $"Status: {rollStatusInPrinter.RollStatus} \nConsumable: {rollStatusInPrinter.Name} \nLabels remaining: {rollStatusInPrinter.LabelsRemaining}";
-                    }
+                   ConsumableInfoText =  $"Status: {cons.RollStatus} \nConsumable: {cons.Name} \nLabels remaining: {cons.LabelsRemaining}";
                 }
             }
         }
