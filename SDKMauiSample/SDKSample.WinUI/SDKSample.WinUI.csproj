@@ -22,9 +22,9 @@
 	<ItemGroup>
 		<PackageReference Include="DYMO.CrossPlatform.Common.Windows" Version="1.6.0" />
 		<PackageReference Include="DYMO.LabelAPI.Windows" Version="1.6.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.71"/>
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.71"/>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
 	</ItemGroup>
 
 	<ItemGroup>
