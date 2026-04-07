@@ -36,16 +36,16 @@ Run Package Manager Console
 * [DYMO.Connect.SDK](https://www.nuget.org/packages/DYMO.Connect.SDK/) - The nuget package required\
 For Windows:
 * [DYMO.LabelAPI.Windows](https://www.nuget.org/packages/DYMO.LabelAPI.Windows)
-* [DYMO.CrossPlatform.Common.Windows](https://www.nuget.org/packages/DYMO.CrossPlatform.Windows)\
+* [DYMO.CrossPlatform.Common.Windows](https://www.nuget.org/packages/DYMO.CrossPlatform.Common.Windows)\
 For Mac:
 * [DYMO.LabelAPI.Mac](https://www.nuget.org/packages/DYMO.LabelAPI.Mac)
-* [DYMO.CrossPlatform.Common.Mac](https://www.nuget.org/packages/DYMO.CrossPlatform.Mac)\
+* [DYMO.CrossPlatform.Common.Mac](https://www.nuget.org/packages/DYMO.CrossPlatform.Common.Mac)\
 For iOS:
 * [DYMO.LabelAPI.iOS](https://www.nuget.org/packages/DYMO.LabelAPI.iOS)
-* [DYMO.CrossPlatform.Common.iOS](https://www.nuget.org/packages/DYMO.CrossPlatform.iOS)\
+* [DYMO.CrossPlatform.Common.iOS](https://www.nuget.org/packages/DYMO.CrossPlatform.Common.iOS)\
 For Android:
 * [DYMO.LabelAPI.Android](https://www.nuget.org/packages/DYMO.LabelAPI.Android)
-* [DYMO.CrossPlatform.Common.Android](https://www.nuget.org/packages/DYMO.CrossPlatform.Android)
+* [DYMO.CrossPlatform.Common.Android](https://www.nuget.org/packages/DYMO.CrossPlatform.Common.Android)
 ## Dependencies 🛠️
 
 * [NETStandard](https://www.nuget.org/packages/NETStandard.Library/) - NETStandard.Library (>= 2.0.0) 
