@@ -27,3 +27,4 @@ WPF/WPFSDKSample/obj/*
 /VisualBasic_Sample/.vs
 /VisualBasic_Sample/VB_DYMOSDK_Sample/obj
 /WPF/WPFSDKSample/.vs
+/WPF/WPFSDKSample/*_wpftmp.csproj

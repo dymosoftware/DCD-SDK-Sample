@@ -7,7 +7,7 @@ Module Module1
         DymoSDK.App.Init()
 
         Dim fullpath As String = System.IO.Path.GetFullPath("samplelabel.dymo")
-        Dim dymoSDKLabel = DymoLabel.Instance
+        Dim dymoSDKLabel = DymoLabel.LabelSharedInstance
         dymoSDKLabel.LoadLabelFromFilePath(fullpath)
 
         Dim dymoSDKPrinter = DymoPrinter.Instance
