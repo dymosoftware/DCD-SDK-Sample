@@ -54,6 +54,10 @@ For Android:
 
 ## Classes and methods ⚙️
 
+Please include the following initialization line before calling any other methods:
+```
+DymoSDK.App.Init();
+```
 
 - #### DymoLabel instance
 
